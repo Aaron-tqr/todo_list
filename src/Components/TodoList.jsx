@@ -23,10 +23,11 @@ const TodoList = () => {
       setListInputs({...listInputs, [index]: ''});
     }
   };
-  
+
   const handleListInputChange = (index, value) => {
     setListInputs ({...listInputs, [index]: value});
   };
+
 
   return (
     <>
@@ -49,6 +50,13 @@ const TodoList = () => {
         {todos.map ((todo, index) => ( //iterate over each todo item in todos array
           <div key = {index} className = "todo-card">
           <div className='heading_todo'>
+            <ul>
+              {todo.lists.map ((list, listIndex) => (
+                <li key={listIndex} className='todo_inside_list'>
+                  <p>{list}</p>
+                </li>
+              ))}
+            </ul>
             <div className='add_list'>
               <input
               type="text" className='list-input'
