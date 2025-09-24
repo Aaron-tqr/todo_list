@@ -36,6 +36,13 @@ const TodoList = () => {
         {todos.map ((todo, index) => ( //iterate over each todo item in todos array
           <div key = {index} className = "todo-card">
           <div className='heading_todo'>
+            <div className='add_list'>
+              <input
+              type="text" className='list-input'
+              placeholder='Add List' 
+              value={listInputs[index] || ''}
+              onChange={(e) => handleListInputChange (index, e.target.value)}/>
+            </div>
             <h3>{todo.heading}</h3>
             <button className='delete-button-heading' onClick={() => handleDeleteTodo(index)}>Delete Heading</button>
           </div>
